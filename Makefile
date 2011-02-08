@@ -1,5 +1,6 @@
 REBAR_PROFILE = test
 MINIMAL_COVERAGE = 75
+REBAR=../../rebar
 
 compile:
 	@rebar3 compile
@@ -10,6 +11,9 @@ clean:
 test:
 	ERL_AFLAGS="-s ssl"
 	rebar3 as $(REBAR_PROFILE) eunit -c
+
+ebins:
+	$(REBAR) compile
 
 proper:
 	rebar3 as $(REBAR_PROFILE) proper -c
